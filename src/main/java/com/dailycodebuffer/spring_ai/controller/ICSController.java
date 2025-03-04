@@ -1,5 +1,10 @@
 package com.dailycodebuffer.spring_ai.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
 import org.springframework.ai.chat.prompt.PromptTemplate;
@@ -10,11 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 @RestController
 public class ICSController {
 
@@ -22,13 +22,13 @@ public class ICSController {
     private final VectorStore vectorStore;
 
     public ICSController(ChatClient.Builder builder, VectorStore vectorStore) {
-        /*this.chatClient = builder
+        this.chatClient = builder
                 .defaultAdvisors(new QuestionAnswerAdvisor(
                         vectorStore,
                         SearchRequest.defaults()
                 ))
-                .build();*/
-        this.chatClient = builder.build();
+                .build();
+        // this.chatClient = builder.build();
         this.vectorStore = vectorStore;
     }
 
